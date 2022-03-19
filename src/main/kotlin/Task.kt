@@ -68,11 +68,9 @@ fun calculateOfHour(secondsAgo: Int): Int {
 fun minuteCases(secondsAgo: Int): String {
     val case = when (calculateOfMinute(secondsAgo)) {
         1 -> "у"
-        in 2..4 -> "ы"
-        in 5..20 -> ""
+        in 2..4, in 22..24, in 32..34, in 42..44 -> "ы"
+        in 5..20, in 25..60 -> ""
         21 -> "у"
-        in 22..24 -> "ы"
-        in 25..60 -> ""
         else -> ""
     }
     return case
@@ -80,12 +78,9 @@ fun minuteCases(secondsAgo: Int): String {
 
 fun hourCases(secondsAgo: Int): String {
     val case = when (calculateOfHour(secondsAgo)) {
-        1 -> ""
-        in 2..4 -> "а"
-        in 5..20 -> "ов"
-        21 -> ""
-        in 22..24 -> "а"
-        in 25..60 -> "ов"
+        1, 21 -> ""
+        in 2..4, in 22..24 -> "а"
+        in 5..20, in 25..60 -> "ов"
         else -> ""
     }
     return case
